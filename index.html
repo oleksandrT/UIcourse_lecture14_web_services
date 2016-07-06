@@ -1,20 +1,23 @@
 <html>
 <head>
-	<title>AJAX try 3</title>
-  <link href="styles.css">
+    <title>AJAX try 3</title>
+    <link href="public/styles.css" rel="stylesheet">
 </head>
 <body>
 
-  <div class="form">
-    <form action="/" method="post">
-      Enter your name:
-      <input type="text" name="name" placeholder="..." />
-      <br>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+    <div class="form">
+        <form action="/" method="post">
+            <label>Enter your name:</label>
+            <input type="text" name="name" placeholder="..." id="theMessage" />
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
-  <!--<script src="main.js"></script>-->
+    <div id="response"></div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="public/main.js"></script>
 
 </body>
 </html>

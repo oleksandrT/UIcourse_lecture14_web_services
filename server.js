@@ -6,17 +6,30 @@ var bodyParser = require('body-parser');
 // app.set('view engine', 'ejs');
 
 // parse html forms
-app.use(bodyParser.urlencoded({ extended : false }));
+app.use(bodyParser.urlencoded({ extended : true }));
+app.use(bodyParser.json());
+
+// set folder for static files
+app.use('/public', express.static(__dirname + '/public'));
 
 // render the ejs page
 app.get('/', function (req, res) {
-  res.sendfile('index.html');
+    res.sendfile('index.html');
 });
 
 // when Add to Top button is clicked
 app.post('/', function (req, res) {
-  console.log("Hello " + req.body.name );
-  res.redirect('/');
+    //console.log("Hello " + req.body.name );
+
+    var returnJsonObj = {echoMessage: req.body.message};
+    console.log(returnJsonObj);
+
+    //res.redirect('/');
+
+    // console.log("Data: " + req.body );
+    //
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(returnJsonObj));
 });
 
 app.listen(8000);
